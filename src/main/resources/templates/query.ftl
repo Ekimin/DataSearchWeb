@@ -1,7 +1,16 @@
 <html>
 <#include  "./common/header.ftl">
     <body>
-        <div>客户数据查询</div>
+        <div style="font-size: 30px;">客户数据查询</div>
+        <div style="margin-bottom: 50px;">
+            <label>客户名字</label>
+            <input id="name" type="text"/>
+            <label>身份证</label>
+            <input id="cardNum"  type="number"/>
+            <label>手机号</label>
+            <input id="tel" type="number"/>
+            <button type="button" onclick="gotoUrl()">搜索</button>
+        </div>
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -68,4 +77,15 @@
             </ul>
         </div>
     </body>
+
+<script>
+    function gotoUrl() {
+        var name = $('#name').val()
+        var cardNum = $('#cardNum').val()
+        var tel =$('#tel').val()
+        console.log(name+cardNum+tel)
+
+        window.location.href = "/customer/param/?name="+name+"&cardNum="+cardNum+"&tel="+tel;
+    }
+</script>
 </html>

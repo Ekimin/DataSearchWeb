@@ -20,4 +20,14 @@ public class CustomerServiceImpl implements CustomerService {
     public int countByCardType(String cardType) {
         return customerRepository.countByCardType(cardType);
     }
+
+    @Override
+    public List<Customer> getCustomersByNameCardTelCardType(String name, String cardNum, String tel, String cardType, int page, int size) {
+        return customerRepository.findByNameCardTelCardType(name,cardNum,tel,cardType,page,size);
+    }
+
+    @Override
+    public int countByNameCardTelCardType(String name, String cardNum, String tel, String cardType) {
+        return customerRepository.countByNameCardTelCardType(name, cardNum, tel, cardType);
+    }
 }

@@ -8,5 +8,12 @@ public interface CustomerService {
 
     List<Customer> getCustomersByCardType(String cardType, int page,int size);
     int countByCardType(String cardType);
+
+
+    List<Customer> getCustomersByNameCardTelCardType(String name,String cardNum,String tel,String cardType, int page,int size);
+
+    int countByNameCardTelCardType(String name,String cardNum,String tel,String cardType);
+
+
 }
 
