@@ -26,7 +26,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <#list customerPage.content as customer>
+                        <#list customerPage as customer>
                         <tr>
                             <td>${customer.getCstName()}</td>
                             <td>${customer.getCardID()}</td>
@@ -50,7 +50,7 @@
                 <li><a href="/customer/query?page=${currentPage-1}&size=${size}"">上一页</a></li>
             </#if>
 
-            <#list 1..customerPage.getTotalPages() as index>
+            <#list 1..page as index>
 
                 <#if currentPage == index>
                     <li class="disabled"> <a >${index}</a></li>
@@ -60,7 +60,7 @@
 
             </#list>
 
-            <#if currentPage gte customerPage.getTotalPages()>
+            <#if currentPage gte page>
                 <li class="disabled"><a href="#">下一页 </a></li>
             <#else>
                 <li><a href="/customer/query?page=${currentPage+1}&size=${size}">下一页 </a></li>

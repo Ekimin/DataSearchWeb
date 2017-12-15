@@ -19,5 +19,5 @@ public class Customer {
     private String MobileTel;
     private String Email;
     private String Address;
-    private String cardType;
+    private String CardType;
 }

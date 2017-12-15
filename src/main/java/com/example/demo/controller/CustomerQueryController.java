@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -22,11 +23,13 @@ public class CustomerQueryController {
 
     @GetMapping("/query")
     public ModelAndView loadCustomerQuery(@RequestParam(value = "page",defaultValue = "1")int page, @RequestParam(value = "size",defaultValue = "3") int size, Map<String,Object> map){
-        PageRequest request = new PageRequest(page-1,size);
-        Page<Customer> customerPage = customerService.getCustomersByCardType("身份证",request);
+        int start = (page -1 ) * size;
+        int count = customerService.countByCardType("身份证");
+        List<Customer> customerPage = customerService.getCustomersByCardType("身份证",start,size);
         map.put("customerPage",customerPage);
         map.put("currentPage",page);
         map.put("size",size);
+        map.put("page",(count-1)/size+1);
         return new ModelAndView("query",map);
     }
 }
