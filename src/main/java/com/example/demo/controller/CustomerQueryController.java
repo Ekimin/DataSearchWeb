@@ -29,6 +29,7 @@ public class CustomerQueryController {
         map.put("currentPage",page);
         map.put("size",size);
         map.put("page",(count-1)/size+1);
+        map.put("show",false);
         return new ModelAndView("query",map);
     }
 
@@ -41,6 +42,7 @@ public class CustomerQueryController {
         map.put("currentPage",page);
         map.put("size",size);
         map.put("page",(count-1)/size+1);
+        map.put("show",true);
         return new ModelAndView("query",map);
     }
 }

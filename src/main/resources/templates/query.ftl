@@ -11,6 +11,7 @@
             <input id="tel" type="number"/>
             <button type="button" onclick="gotoUrl()">搜索</button>
         </div>
+        <#if show>
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -76,6 +77,7 @@
             </#if>
             </ul>
         </div>
+        </#if>
     </body>
 
 <script>
