@@ -20,4 +20,5 @@ public class Customer {
     private String Email;
     private String Address;
     private String CardType;
+    private String Gender;
 }
