@@ -21,14 +21,7 @@ public class CustomerQueryController {
     private CustomerService customerService;
 
     @GetMapping("/query")
-    public ModelAndView loadCustomerQuery(@RequestParam(value = "page",defaultValue = "1")int page, @RequestParam(value = "size",defaultValue = "3") int size, Map<String,Object> map){
-        int start = (page -1 ) * size;
-        int count = customerService.countByCardType("身份证");
-        List<Customer> customerPage = customerService.getCustomersByCardType("身份证",start,size);
-        map.put("customerPage",customerPage);
-        map.put("currentPage",page);
-        map.put("size",size);
-        map.put("page",(count-1)/size+1);
+    public ModelAndView loadCustomerQuery(Map<String,Object> map){
         map.put("show",false);
         return new ModelAndView("query",map);
     }
