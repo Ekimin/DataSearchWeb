@@ -1,8 +1,14 @@
 <html>
 <#include  "./common/header.ftl">
+<style>
+    body{ text-align:center}
+    .header-title{ margin:0 auto; width:400px; height:100px; border:1px solid }
+    .search-region{margin:10 auto}
+    /* css注释：为了观察效果设置宽度 边框 高度等样式 */
+</style>
 <body>
-<div style="font-size: 30px; align-content: center">客户数据查询</div>
-<div style="margin-bottom: 50px;">
+<div class="header-title" style="font-size: 30px; align-content: center">客户数据查询</div>
+<div class="search-region" style="margin-bottom: 50px;">
     <label>客户名字</label>
     <input id="name" type="text"/>
     <label>身份证</label>
@@ -42,7 +48,7 @@
                     <#list customerPage as customer>
                     <tr>
                         <td>${customer.getCstName()}</td>
-                        <td>${customer.getCardID()}</td>
+                        <td>${(customer.getCardID()==null) ? string("",customer.getCardID())}</td>
                         <td>${customer.getMobileTel()}</td>
                         <td>${customer.getEmail()}</td>
                         <td>${customer.getAddress()}</td>

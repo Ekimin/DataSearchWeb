@@ -22,7 +22,10 @@ public interface CustomerRepository extends JpaRepository<Customer,String> {
     @Query(value="select count(*) from  p_Customer  where CstName =?1 and CardId =?2 and MobileTel = ?3 and CardType = ?4",nativeQuery = true)
     int countByNameCardTelCardType(String name,String cardNum,String tel,String cardType);
 
+    @Query(value = "select * from p_Customer where CstName=?1 ORDER BY CstGUID asc limit ?2,?3", nativeQuery = true)
+    List<Customer> findByName(String name, int start, int size);
 
-
+    @Query(value = "select count(*) from p_Customer where CstName=?1", nativeQuery = true)
+    int countByName(String name);
 }
 
